@@ -74,11 +74,11 @@ cat <<EOF >$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/up.d/ppp/tleds
 . /etc/rc.d/init.d/functions
 
 if [ -f /var/lock/subsys/tleds ]; then
-    msg_starting tleds
-    daemon tleds -d 200 -c ppp0
-    touch /var/lock/subsys/tleds
+	msg_starting tleds
+	daemon tleds -d 200 -c ppp0
+	touch /var/lock/subsys/tleds
 else
-    msg_Already_Running tleds
+	msg_Already_Running tleds
 fi
 EOF
 
@@ -88,12 +88,12 @@ cat <<EOF >$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/down.d/ppp/tleds
 . /etc/rc.d/init.d/functions
 
 if [ -f /var/lock/subsys/tleds ]; then
-    msg_stopping tleds
-    killproc tleds
-    rm -f /var/lock/subsys/tleds
+	msg_stopping tleds
+	killproc tleds
+	rm -f /var/lock/subsys/tleds
 else
-    msg_Not_Running tleds
-    exit 1
+	msg_Not_Running tleds
+exit 1
 fi
 EOF
 
