@@ -9,8 +9,8 @@ Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
 Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
 BuildRequires:	XFree86-devel
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ExclusiveArch:	%{ix86} ppc
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 tleds is a program which blinks keyboard LEDs (Light Emitting Diode)
@@ -48,16 +48,13 @@ wybranym interfejsie sieciowym.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/bin} \
-	$RPM_BUILD_ROOT%{_mandir}/man1
+	$RPM_BUILD_ROOT%{_mandir}/man1 \
+	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/{up,down}.d/ppp
 
 install tleds $RPM_BUILD_ROOT%{_bindir}
 install xtleds $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
 install tleds.1 $RPM_BUILD_ROOT%{_mandir}/man1
-
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/up.d/ppp
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/down.d/ppp
 
 cat <<EOF >$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/up.d/ppp/tleds
 #!/bin/sh
