@@ -1,0 +1,62 @@
+diff -Naur tleds-1.05b/tleds.c tleds-1.05b-p/tleds.c
+--- tleds-1.05b/tleds.c	Mon Oct  5 22:32:56 1998
++++ tleds-1.05b-p/tleds.c	Tue May 30 11:55:47 2000
+@@ -106,6 +106,7 @@
+ #else
+ #define FIELDCOUNT	11	/* 17 really, in v2.1.97 +/- N */
+ #endif
++#define ACTIVEDELAY     250000
+ 
+ /* Function prototypes */
+ void		check_sanity ();
+@@ -150,6 +151,8 @@
+ static int		opt_b = FALSE, opt_d = FALSE, opt_h = FALSE,
+ 		opt_k = FALSE, opt_q = FALSE, opt_v = FALSE,
+ 		opt_V = FALSE, opt_c = FALSE;
++static int              passed = 0;
++static int              state = 0;
+ 
+ /* The code */
+ int	main (int argc, char* argv [])
+@@ -325,6 +328,7 @@
+ 
+ void	my_sleep (struct timeval sleeptimeval)
+ {
++passed+=sleeptimeval.tv_usec;
+ #if 1
+ select(1, NULL, NULL, NULL, &sleeptimeval);
+ #else
+@@ -370,6 +374,12 @@
+ transmitted = atol(list[10]);	/* Kernel v2.1.119 */
+ #endif
+ 
++if (passed >= ACTIVEDELAY) {
++        passed %= ACTIVEDELAY;
++        led(CAPSLOCKLED, state ? CLEAR : SET, NOW);
++        state = !state;
++}
++
+ if (received != formerReceived) {
+ 	led(NUMLOCKLED, SET, DELAYED);
+ 	formerReceived = received;
+@@ -439,6 +449,12 @@
+ 			else
+ 				ledVal &= ~LED_NUM;
+ 			break;
++                case CAPSLOCKLED:
++                        if (mode == SET)
++                                ledVal |= LED_CAP;
++                        else
++                                ledVal &= ~LED_CAP;
++                        break;
+ 		default:
+ 			perror("tleds: wrong led-value");
+ 			exit(1);
+@@ -574,6 +590,7 @@
+ if (myDisplay) {
+ #if (! REMOVE_X_CODE)
+ 	clear_led(NUMLOCKLED);
++        clear_led(CAPSLOCKLED);
+ 	clear_led(SCROLLLOCKLED);
+ 	XCloseDisplay(myDisplay);	/* X */
+ #endif
