@@ -2,7 +2,7 @@ Summary:	Show network activity using keyboard leds
 Summary(pl):	Pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze
 Name:		tleds
 Version:	1.05b
-Release:	3
+Release:	4
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
@@ -10,7 +10,7 @@ Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} ppc
 
 %description
 tleds is a program which blinks keyboard LEDs (Light Emitting Diode)
