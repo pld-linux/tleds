@@ -6,6 +6,7 @@ Release:	4
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
+# Source0-md5:	9372325d0383b7ea38e463dae1f1de78
 Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
 BuildRequires:	XFree86-devel
