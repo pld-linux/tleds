@@ -4,6 +4,7 @@ Name:		tleds
 Version:	1.05b
 Release:	2
 Group:		Networking/Utilities
+Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
 License:	GPL
 Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
@@ -25,9 +26,10 @@ interfejsie sieciowym.
 
 %package -n xtleds
 Summary:	show network activity using keyboard leds (XFree86 version)
-Summary(pl):	pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze. Wersja dla XFree86.
-Group:		X11/Utilities
-Group(pl):	X11/Narzêdzia
+Summary(pl):	pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze (wersja dla XFree86)
+Group:		X11/Applications
+Group(de):	X11/Applikationen
+Group(pl):	X11/Aplikacje
 Requires:	%{name}
 Requires:	XFree86-libs
 
@@ -46,7 +48,7 @@ wybranym interfejsie sieciowym.
 %patch0 -p1
 
 %build
-%{__make} GCCOPTS="$RPM_OPT_FLAGS -s -DKERNEL2_1"
+%{__make} GCCOPTS="%{rpmcflags} %{rpmldflags} -DKERNEL2_1"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -58,8 +60,7 @@ install tleds $RPM_BUILD_ROOT%{_bindir}
 install xtleds $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
 install tleds.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man*/* \
-	README Changes
+gzip -9nf README Changes
 
 %clean
 rm -rf $RPM_BUILD_ROOT
