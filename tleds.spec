@@ -5,10 +5,6 @@ Version:	1.05b
 Release:	3
 License:	GPL
 Group:		Networking/Utilities
-Group(de):	Netzwerkwesen/Werkzeuge
-Group(es):	Red/Utilitarios
-Group(pl):	Sieciowe/Narzêdzia
-Group(pt_BR):	Rede/Utilitários
 Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
 Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
@@ -30,11 +26,6 @@ interfejsie sieciowym.
 Summary:	Show network activity using keyboard leds (XFree86 version)
 Summary(pl):	Pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze (wersja dla XFree86)
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 Requires:	%{name}
 Requires:	XFree86-libs
 
