@@ -2,7 +2,7 @@ Summary:	Show network activity using keyboard leds
 Summary(pl):	Pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze
 Name:		tleds
 Version:	1.05b
-Release:	4
+Release:	5
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
