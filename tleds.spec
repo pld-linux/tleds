@@ -85,7 +85,6 @@ exit 1
 fi
 EOF
 
-gzip -9nf README Changes
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -96,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_sysconfdir}/sysconfig/interfaces/down.d/ppp/tleds
 %attr(755,root,root) %{_sysconfdir}/sysconfig/interfaces/up.d/ppp/tleds
 %{_mandir}/man*/*
-%doc *.gz
+%doc README Changes
 
 %files -n xtleds
 %defattr(644,root,root,755)
