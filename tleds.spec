@@ -41,7 +41,7 @@ interfejsie sieciowym.
 
 %prep
 %setup  -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 make GCCOPTS="$RPM_OPT_FLAGS -s -DKERNEL2_1"
