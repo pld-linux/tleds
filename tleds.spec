@@ -50,13 +50,13 @@ wybranym interfejsie sieciowym.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/bin} \
 	$RPM_BUILD_ROOT%{_mandir}/man1 \
-	$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/{up,down}.d/ppp
+	$RPM_BUILD_ROOT/etc/sysconfig/interfaces/{up,down}.d/ppp
 
 install tleds $RPM_BUILD_ROOT%{_bindir}
 install xtleds $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
 install tleds.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-cat <<EOF >$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/up.d/ppp/tleds
+cat <<EOF >$RPM_BUILD_ROOT/etc/sysconfig/interfaces/up.d/ppp/tleds
 #!/bin/sh
 #this script will make your keyboard LEDs blink on (in|out)comming network packets
 . /etc/rc.d/init.d/functions
@@ -70,7 +70,7 @@ else
 fi
 EOF
 
-cat <<EOF >$RPM_BUILD_ROOT%{_sysconfdir}/sysconfig/interfaces/down.d/ppp/tleds
+cat <<EOF >$RPM_BUILD_ROOT/etc/sysconfig/interfaces/down.d/ppp/tleds
 #!/bin/sh
 #this script will shut down tleds
 . /etc/rc.d/init.d/functions
@@ -92,8 +92,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/tleds
-%attr(755,root,root) %{_sysconfdir}/sysconfig/interfaces/down.d/ppp/tleds
-%attr(755,root,root) %{_sysconfdir}/sysconfig/interfaces/up.d/ppp/tleds
+%attr(755,root,root) /etc/sysconfig/interfaces/down.d/ppp/tleds
+%attr(755,root,root) /etc/sysconfig/interfaces/up.d/ppp/tleds
 %{_mandir}/man*/*
 %doc README Changes
 
