@@ -1,16 +1,18 @@
-Summary:	show network activity using keyboard leds
-Summary(pl):	pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze
+Summary:	Show network activity using keyboard leds
+Summary(pl):	Pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze
 Name:		tleds
 Version:	1.05b
 Release:	2
+License:	GPL
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
+Group(es):	Red/Utilitarios
 Group(pl):	Sieciowe/Narzêdzia
-License:	GPL
+Group(pt_BR):	Rede/Utilitários
 Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
 Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
-BuildPrereq:	XFree86-devel
+BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 ExclusiveArch:	%{ix86}
 
@@ -25,11 +27,14 @@ obecno¶æ wychodz±cych oraz przychodz±cych pakietów na wybranym
 interfejsie sieciowym.
 
 %package -n xtleds
-Summary:	show network activity using keyboard leds (XFree86 version)
-Summary(pl):	pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze (wersja dla XFree86)
+Summary:	Show network activity using keyboard leds (XFree86 version)
+Summary(pl):	Pokazuje aktywno¶æ sieci u¿ywaj±c diod na klawiaturze (wersja dla XFree86)
 Group:		X11/Applications
 Group(de):	X11/Applikationen
+Group(es):	X11/Aplicaciones
 Group(pl):	X11/Aplikacje
+Group(pt_BR):	X11/Aplicações
+Group(pt):	X11/Aplicações
 Requires:	%{name}
 Requires:	XFree86-libs
 
