@@ -46,7 +46,7 @@ sieciowym.
 %patch0 -p1
 
 %build
-make GCCOPTS="$RPM_OPT_FLAGS -s -DKERNEL2_1"
+%{__make} GCCOPTS="$RPM_OPT_FLAGS -s -DKERNEL2_1"
 
 %install
 rm -rf $RPM_BUILD_ROOT
