@@ -1,5 +1,5 @@
 Summary:	Show network activity using keyboard leds
-Summary(pl):	Pokazuje aktywno舵 sieci u縴waj眂 diod na klawiaturze
+Summary(pl.UTF-8):   Pokazuje aktywno艣膰 sieci u偶ywaj膮c diod na klawiaturze
 Name:		tleds
 Version:	1.05b
 Release:	5
@@ -18,14 +18,14 @@ tleds is a program which blinks keyboard LEDs (Light Emitting Diode)
 indicating outgoing and incoming network packets on selected network
 interface.
 
-%description -l pl
-tleds jest programem kt髍y zmienia stan diod na klawiaturze, pokazuj眂
-obecno舵 wychodz眂ych oraz przychodz眂ych pakiet體 na wybranym
+%description -l pl.UTF-8
+tleds jest programem kt贸ry zmienia stan diod na klawiaturze, pokazuj膮c
+obecno艣膰 wychodz膮cych oraz przychodz膮cych pakiet贸w na wybranym
 interfejsie sieciowym.
 
 %package -n xtleds
 Summary:	Show network activity using keyboard leds (XFree86 version)
-Summary(pl):	Pokazuje aktywno舵 sieci u縴waj眂 diod na klawiaturze (wersja dla XFree86)
+Summary(pl.UTF-8):   Pokazuje aktywno艣膰 sieci u偶ywaj膮c diod na klawiaturze (wersja dla XFree86)
 Group:		X11/Applications
 Requires:	%{name}
 Requires:	XFree86-libs
@@ -35,9 +35,9 @@ xtleds is a program which blinks keyboard LEDs (Light Emitting Diode)
 indicating outgoing and incoming network packets on selected network
 interface.
 
-%description -n xtleds -l pl
-xtleds jest programem kt髍y zmienia stan diod na klawiaturze,
-pokazuj眂 obecno舵 wychodz眂ych oraz przychodz眂ych pakiet體 na
+%description -n xtleds -l pl.UTF-8
+xtleds jest programem kt贸ry zmienia stan diod na klawiaturze,
+pokazuj膮c obecno艣膰 wychodz膮cych oraz przychodz膮cych pakiet贸w na
 wybranym interfejsie sieciowym.
 
 %prep
