@@ -1,5 +1,5 @@
 Summary:	Show network activity using keyboard leds
-Summary(pl.UTF-8):   Pokazuje aktywność sieci używając diod na klawiaturze
+Summary(pl.UTF-8):	Pokazuje aktywność sieci używając diod na klawiaturze
 Name:		tleds
 Version:	1.05b
 Release:	5
@@ -25,7 +25,7 @@ interfejsie sieciowym.
 
 %package -n xtleds
 Summary:	Show network activity using keyboard leds (XFree86 version)
-Summary(pl.UTF-8):   Pokazuje aktywność sieci używając diod na klawiaturze (wersja dla XFree86)
+Summary(pl.UTF-8):	Pokazuje aktywność sieci używając diod na klawiaturze (wersja dla XFree86)
 Group:		X11/Applications
 Requires:	%{name}
 Requires:	XFree86-libs
