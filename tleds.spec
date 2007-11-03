@@ -9,7 +9,7 @@ Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
 # Source0-md5:	9372325d0383b7ea38e463dae1f1de78
 Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
-BuildRequires:	XFree86-devel
+BuildRequires:	xorg-lib-libX11-devel
 ExclusiveArch:	%{ix86} ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,7 +28,6 @@ Summary:	Show network activity using keyboard leds (XFree86 version)
 Summary(pl.UTF-8):	Pokazuje aktywność sieci używając diod na klawiaturze (wersja dla XFree86)
 Group:		X11/Applications
 Requires:	%{name}
-Requires:	XFree86-libs
 
 %description -n xtleds
 xtleds is a program which blinks keyboard LEDs (Light Emitting Diode)
@@ -54,7 +53,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/bin} \
 	$RPM_BUILD_ROOT/etc/sysconfig/interfaces/{up,down}.d/ppp
 
 install tleds $RPM_BUILD_ROOT%{_bindir}
-install xtleds $RPM_BUILD_ROOT%{_prefix}/X11R6/bin
+install xtleds $RPM_BUILD_ROOT%{_bindir}
 install tleds.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 cat <<EOF >$RPM_BUILD_ROOT/etc/sysconfig/interfaces/up.d/ppp/tleds
@@ -100,4 +99,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n xtleds
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_prefix}/X11R6/bin/xtleds
+%attr(755,root,root) %{_bindir}/xtleds
