@@ -1,5 +1,5 @@
 Summary:	Show network activity using keyboard leds
-Summary(pl.UTF-8):	Pokazuje aktywność sieci używając diod na klawiaturze
+Summary(pl.UTF-8):	Pokazywanie aktywności sieci przy użyciu diod na klawiaturze
 Name:		tleds
 Version:	1.05b
 Release:	5
@@ -24,10 +24,10 @@ obecność wychodzących oraz przychodzących pakietów na wybranym
 interfejsie sieciowym.
 
 %package -n xtleds
-Summary:	Show network activity using keyboard leds (XFree86 version)
-Summary(pl.UTF-8):	Pokazuje aktywność sieci używając diod na klawiaturze (wersja dla XFree86)
+Summary:	Show network activity using keyboard leds (X11 version)
+Summary(pl.UTF-8):	Pokazywanie aktywności sieci przy użyciu diod na klawiaturze (wersja dla X11)
 Group:		X11/Applications
-Requires:	%{name}
+Requires:	%{name} = %{version}-%{release}
 
 %description -n xtleds
 xtleds is a program which blinks keyboard LEDs (Light Emitting Diode)
@@ -44,7 +44,8 @@ wybranym interfejsie sieciowym.
 %patch0 -p1
 
 %build
-%{__make} GCCOPTS="%{rpmcflags} %{rpmldflags} -DKERNEL2_1"
+%{__make} \
+	GCCOPTS="%{rpmcflags} %{rpmldflags} -DKERNEL2_1"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -85,17 +86,16 @@ exit 1
 fi
 EOF
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc README Changes
 %attr(755,root,root) %{_bindir}/tleds
 %attr(755,root,root) /etc/sysconfig/interfaces/down.d/ppp/tleds
 %attr(755,root,root) /etc/sysconfig/interfaces/up.d/ppp/tleds
-%{_mandir}/man*/*
-%doc README Changes
+%{_mandir}/man1/tleds.1*
 
 %files -n xtleds
 %defattr(644,root,root,755)
