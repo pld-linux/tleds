@@ -10,7 +10,6 @@ Source0:	http://www.hut.fi/~jlohikos/public/%{name}-%{version}eta10.tgz
 Patch0:		%{name}-activity.patch
 URL:		http://www.iki.fi/Jouni.Lohikoski/tleds.html
 BuildRequires:	xorg-lib-libX11-devel
-ExclusiveArch:	%{ix86} ppc
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,7 +39,7 @@ pokazując obecność wychodzących oraz przychodzących pakietów na
 wybranym interfejsie sieciowym.
 
 %prep
-%setup  -q
+%setup -q
 %patch0 -p1
 
 %build
@@ -56,6 +55,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_prefix}/X11R6/bin} \
 install tleds $RPM_BUILD_ROOT%{_bindir}
 install xtleds $RPM_BUILD_ROOT%{_bindir}
 install tleds.1 $RPM_BUILD_ROOT%{_mandir}/man1
+echo '.so tleds.1' >$RPM_BUILD_ROOT%{_mandir}/man1/xtleds.1
 
 cat <<EOF >$RPM_BUILD_ROOT/etc/sysconfig/interfaces/up.d/ppp/tleds
 #!/bin/sh
@@ -100,3 +100,4 @@ rm -rf $RPM_BUILD_ROOT
 %files -n xtleds
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/xtleds
+%{_mandir}/man1/xtleds.1*
